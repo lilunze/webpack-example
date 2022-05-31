@@ -1,0 +1,13 @@
+ @font-face {
+     font-family: 'Cartoon';
+     src: url('./cartoon.ttf');
+     font-weight: 600;
+     font-style: normal;
+ }
+
+ .hello {
+     color: red;
+     font-family: 'Cartoon';
+     background: url('./assets/images/test.jpg');
+     transform: scale(1);
+ }

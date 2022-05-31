@@ -1,0 +1,41 @@
+{
+  "name": "webpack-example",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "start": "webpack-dev-server --open",
+    "build": "webpack --config webpack.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lilunze/webpack-example.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lilunze/webpack-example/issues"
+  },
+  "homepage": "https://github.com/lilunze/webpack-example#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.7",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.7.1",
+    "csv-loader": "^3.0.3",
+    "html-webpack-plugin": "^5.5.0",
+    "imagemin-webpack-plugin": "^2.4.2",
+    "mini-css-extract-plugin": "^2.6.0",
+    "optimize-css-assets-webpack-plugin": "^6.0.1",
+    "postcss-loader": "^7.0.0",
+    "speed-measure-webpack-plugin": "^1.5.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.72.1",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.9.0",
+    "xml-loader": "^1.2.1"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
