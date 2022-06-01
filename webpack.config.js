@@ -11,6 +11,8 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const autoprefixer = require('autoprefixer');
 // const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
 // const smp = new SpeedMeasurePlugin();
+// 引入自己的插件
+const WebpackVersionPlugin = require("./plugins/webpack-version-plugin");
 
 module.exports = {
   mode: "production",
@@ -36,6 +38,9 @@ module.exports = {
     filename: "[name].js",
     path: path.resolve(__dirname, "dist"),
   },
+  resolveLoader: {
+    modules: ['node_modules', './loaders/'] // 配置加载本地loader
+  },
   plugins: [
     new CleanWebpackPlugin(),  // 每次构建前清理dist/
     new HtmlWebpackPlugin({
@@ -49,18 +54,21 @@ module.exports = {
     new ImageminPlugin({
       //disable: process.env.NODE_ENV !== 'production', // 开发模式禁用
       pngquant: {
-        quality: '10',
+        quality: '80',
         progressive: true
       }
     }),
-    new OptimizeCSSAssetsPlugin({})
+    new OptimizeCSSAssetsPlugin({}),
+    new WebpackVersionPlugin({
+      comment: '测试'
+    })
   ],
   module: {
     rules: [
       {
         test: /\.css$/,
         use: [
-          MiniCssExtractPlugin.loader, 
+          MiniCssExtractPlugin.loader,
           "css-loader",
           {
             loader: "postcss-loader",
@@ -73,7 +81,7 @@ module.exports = {
                 ],
               }
             },
-          }
+          },
         ],
       },
       {
@@ -98,6 +106,12 @@ module.exports = {
         test: /\.xml$/,
         use: ["xml-loader"],
       },
+      {
+        test: /\.txt$/,
+        use: [
+          'reverse-loader'
+        ]
+      }
     ],
   }
 };
