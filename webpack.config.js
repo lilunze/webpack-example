@@ -12,7 +12,7 @@ const autoprefixer = require('autoprefixer');
 // const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
 // const smp = new SpeedMeasurePlugin();
 // 引入自己的插件
-const WebpackVersionPlugin = require("./plugins/webpack-version-plugin");
+const WebpackInsertPlugin = require("./plugins/webpack-insert-plugin");
 
 module.exports = {
   mode: "production",
@@ -59,7 +59,7 @@ module.exports = {
       }
     }),
     new OptimizeCSSAssetsPlugin({}),
-    new WebpackVersionPlugin({
+    new WebpackInsertPlugin({
       comment: '测试'
     })
   ],
